@@ -25,12 +25,12 @@ if __name__ == '__main__':
 
     th = 0.987
 
-    for i in range(start, end):
+    for i in tqdm(range(start, end)):
         img = cv2.imread(dir_in + f"{i}.bmp", 1)
         r_list = []
         result2 = np.zeros([1, 2], dtype=np.uint8)
 
-        for j in tqdm(range(1216)):
+        for j in range(1216):
             tracer_img = cv2.imread(f"./iwasa/{j}.bmp", 1)
             result = cv2.matchTemplate(img, tracer_img, cv2.TM_CCORR_NORMED)
             res_th_j, res_th_i = np.where(result > th)
