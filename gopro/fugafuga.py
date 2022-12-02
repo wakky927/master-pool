@@ -45,10 +45,10 @@ if __name__ == '__main__':
 
         result2 = result2[1:]
 
-        for n in tqdm(range(result2.shape[0])):
-            i, j = result2[n, 0], result2[n, 1]
-            if is_same((i, j), r_list):
+        for n in range(result2.shape[0]):
+            s, t = result2[n, 0], result2[n, 1]
+            if is_same((s, t), r_list):
                 continue
-            r_list.append((i, j))
+            r_list.append((s, t))
 
         np.savetxt(dir_out + f"{i}.csv", r_list, delimiter=',', fmt="%d", header="(i, j) of upper left coordinates.")
